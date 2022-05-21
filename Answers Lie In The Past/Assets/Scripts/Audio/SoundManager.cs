@@ -63,7 +63,7 @@ public class SoundManager : MonoBehaviour
         }
 
         //play initial track
-        this.PlayMusicTrack("lost");
+        this.PlayMusicTrack("present");
     }
 
     public void PlayMusicTrack(string title)

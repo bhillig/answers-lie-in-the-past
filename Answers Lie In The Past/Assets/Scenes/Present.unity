@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf99b1dbb935a643bafd59768cbac95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashlightTransform: {fileID: 44255728}
+  flashlight: {fileID: 782049312}
 --- !u!212 &44255730
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2406,7 +2406,7 @@ GameObject:
   - component: {fileID: 782049313}
   - component: {fileID: 782049314}
   m_Layer: 3
-  m_Name: Point Light 2D
+  m_Name: Flashlight (Light)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2655,7 +2655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004132149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.28, z: 0}
+  m_LocalPosition: {x: 0, y: -7.826, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 44255728}
@@ -39195,7 +39195,43 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
       propertyPath: musicTracks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: cf686e97e6e75434e94763c743d39f3d, type: 3}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f564461a1754aa46acf4fd94e41c5a7, type: 3}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[0].title
+      value: flashlight_on
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[1].title
+      value: flashlight_off
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[1].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
@@ -39207,15 +39243,35 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: musicTracks.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c32eb70fe10fe014ab64d4bd04b73a0a, type: 3}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: musicTracks.Array.data[1].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
       propertyPath: musicTracks.Array.data[0].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
       propertyPath: musicTracks.Array.data[0].title
-      value: lost
+      value: present
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: musicTracks.Array.data[1].pitch
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: musicTracks.Array.data[1].title
+      value: past
       objectReference: {fileID: 0}
     - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
       propertyPath: musicTracks.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: musicTracks.Array.data[1].volume
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
