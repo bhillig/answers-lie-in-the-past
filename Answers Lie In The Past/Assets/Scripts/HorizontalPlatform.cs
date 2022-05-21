@@ -51,7 +51,7 @@ public class HorizontalPlatform : MonoBehaviour
 
     void MoveRight()
     {
-        currentPos = Vector2.Lerp(currentPos, endPoint, _speed);
+        currentPos = Vector2.Lerp(currentPos, endPoint, _speed*Time.smoothDeltaTime);
         this.gameObject.transform.position = currentPos;
         if (Vector2.Distance(currentPos, endPoint) < 1f) 
         {
@@ -61,7 +61,7 @@ public class HorizontalPlatform : MonoBehaviour
 
     void MoveLeft()
     {
-        currentPos = Vector2.Lerp(currentPos, startPoint, _speed);
+        currentPos = Vector2.Lerp(currentPos, startPoint, _speed*Time.smoothDeltaTime);
         this.gameObject.transform.position = currentPos;
         if (Vector2.Distance(currentPos, startPoint) < 1f) 
         {
