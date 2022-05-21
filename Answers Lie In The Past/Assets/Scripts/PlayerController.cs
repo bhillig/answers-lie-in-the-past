@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
             instance = this;
             _rb = GetComponent<Rigidbody2D>();
             DontDestroyOnLoad(this.gameObject);
+            Cursor.visible = false;
         }
     }
 
