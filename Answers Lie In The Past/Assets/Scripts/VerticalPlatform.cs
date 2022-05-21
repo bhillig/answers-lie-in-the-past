@@ -22,17 +22,20 @@ public class VerticalPlatform : MonoBehaviour
 
     void Awake()
     {
-        startPoint = this.gameObject.transform.position;
-        currentPos = startPoint;
-        endPoint = startPoint;
         if (_startOnBottom)
         {
+            startPoint = this.gameObject.transform.position;
+            endPoint = startPoint;
+            currentPos = startPoint;
             endPoint.y += _moveRange;
             movingUp = true;
         }
         else 
         {
-            endPoint.y -= _moveRange;
+            endPoint = this.gameObject.transform.position;
+            startPoint = endPoint;
+            currentPos = endPoint;
+            startPoint.y -= _moveRange;
             movingUp = false;
         }
     }

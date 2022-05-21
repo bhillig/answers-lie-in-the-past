@@ -22,17 +22,20 @@ public class HorizontalPlatform : MonoBehaviour
 
     void Awake()
     {
-        startPoint = this.gameObject.transform.position;
-        currentPos = startPoint;
-        endPoint = startPoint;
         if (_startOnLeft)
         {
+            startPoint = this.gameObject.transform.position;
+            endPoint = startPoint;
+            currentPos = startPoint;
             endPoint.x += _moveRange;
             movingRight = true;
         }
         else 
         {
-            endPoint.x -= _moveRange;
+            endPoint = this.gameObject.transform.position;
+            startPoint = endPoint;
+            currentPos = endPoint;
+            startPoint.x -= _moveRange;
             movingRight = false;
         }
     }
