@@ -40,12 +40,14 @@ public class TimeShiftManager : MonoBehaviour
             _inPresent = false;
             _inPast = true;
             sceneToLoad = _pastSceneName;
+            SoundManager.instance.PlayMusicTrack("past");
         }
         else if(_inPast)
         {
             _inPast = false;
             _inPresent = true;
             sceneToLoad = _presentSceneName;
+            SoundManager.instance.PlayMusicTrack("present");
         }
 
         SceneManager.LoadScene(sceneToLoad);

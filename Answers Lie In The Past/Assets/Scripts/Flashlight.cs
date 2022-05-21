@@ -4,13 +4,37 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-    [SerializeField]
-    Transform flashlightTransform;
 
+    [SerializeField]
+    GameObject flashlight;
+
+    private bool isOn = false;
+
+    private void Awake()
+    {
+        flashlight.SetActive(false);
+    }
 
     private void Update()
     {
-        HandleAiming();
+        if(isOn)
+            HandleAiming();
+
+        if (Input.GetMouseButtonDown(0))
+            StartCoroutine(ToggleFlashlight());
+    }
+
+    IEnumerator ToggleFlashlight()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        if (isOn)
+            SoundManager.instance.PlaySoundEffect("flashlight_off");
+        else
+            SoundManager.instance.PlaySoundEffect("flashlight_on");
+
+        flashlight.SetActive(!isOn);
+        isOn = !isOn;
     }
 
     void HandleAiming()
