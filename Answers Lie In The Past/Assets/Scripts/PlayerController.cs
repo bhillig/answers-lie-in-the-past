@@ -17,6 +17,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     bool _isSprinting;
 
+    private bool _facingRight = true;
+    public bool FacingRight
+    {
+        get { return _facingRight; }
+    }
+
     // cache references
     private Rigidbody2D _rb;
 
@@ -67,8 +73,23 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed = _sprintSpeed;
         }
+
+        if(_facingRight && _horizontalMovement < 0.0f)
+        {
+            FlipPlayer();
+        }
+        else if(!_facingRight && _horizontalMovement > 0.0f)
+        {
+            FlipPlayer();
+        }
            
         transform.position += new Vector3(_horizontalMovement, 0.0f, 0.0f) * moveSpeed * Time.deltaTime;
+    }
+
+    private void FlipPlayer()
+    {
+        _facingRight = !_facingRight;
+        transform.Rotate(0.0f, 180.0f, 0.0f);
     }
 
     public void TransferPositionOnTimeShift()
