@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     bool _isSprinting;
 
+    private Vector3 _spawnPoint;
+
     private bool canMove = true;
     private bool _facingRight = true;
     private bool _canTimeShift = false;
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+            _spawnPoint = transform.position;
         }
     }
 
@@ -142,5 +145,10 @@ public class PlayerController : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void SetSpawnPoint(Vector3 point)
+    {
+        _spawnPoint = point;
     }
 }
