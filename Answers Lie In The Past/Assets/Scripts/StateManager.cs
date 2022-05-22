@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    [SerializeField]
     private Dictionary<string,bool> dict = new Dictionary<string, bool>();
     public static StateManager instance { get; set; }
 
