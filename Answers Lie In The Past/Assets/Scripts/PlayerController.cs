@@ -85,11 +85,7 @@ public class PlayerController : MonoBehaviour
         {
             if(_canTimeShift)
             {
-                DisableMovement();
-                SetGravity(0);
                 TimeShiftManager.instance.TimeShift();
-                SetGravity(1);
-                EnableMovement();
             }
         }
     }

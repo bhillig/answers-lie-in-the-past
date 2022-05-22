@@ -55,7 +55,8 @@ public class TimeShiftManager : MonoBehaviour
     IEnumerator LoadSceneAfterOneSecond(string sceneToLoad)
     {
         FindObjectOfType<TimeShiftDissolve>().TurnOnDissolve();
-
+        PlayerController.instance.DisableMovement();
+        PlayerController.instance.SetGravity(0);
         yield return new WaitForSeconds(1.0f);
 
         if (_inPast)
@@ -65,7 +66,8 @@ public class TimeShiftManager : MonoBehaviour
 
         SceneManager.LoadScene(sceneToLoad);
         PlayerController.instance.TransferPositionOnTimeShift();
-
+        PlayerController.instance.EnableMovement();
+        PlayerController.instance.SetGravity(1);
         FindObjectOfType<TimeShiftDissolve>().TurnOnCondense();
     }
     
