@@ -10,15 +10,16 @@ public class WateringCanInteract : Interactable
     // Start is called before the first frame update
     private bool watering = false;
 
-    private SpriteRenderer sr;
+    private SpriteRenderer srr;
     void Start()
     {
         base.Start();
-        sr = water.GetComponent<SpriteRenderer>();
+        srr = water.GetComponent<SpriteRenderer>();
     }
 
     public override void Interact()
     {
+        StateManager.instance.setState("Watered",true);
         StartCoroutine(SprayWater());
     }
 
@@ -28,9 +29,9 @@ public class WateringCanInteract : Interactable
         if (!watering)
         {
             watering = true;
-            sr.enabled = true;
+            srr.enabled = true;
             yield return new WaitForSeconds(1.0f);
-            sr.enabled = false;
+            srr.enabled = false;
             watering = false;
         }
     }

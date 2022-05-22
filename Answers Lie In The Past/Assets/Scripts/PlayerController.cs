@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
 
-    private Vector2 interactableBoxSize = new Vector2(0.1f, 1f);
+    private Vector2 interactableBoxSize = new Vector2(0.3f, 1f);
 
     public static PlayerController instance { get; private set; }
     public static Vector3 playerTransform { get; private set; }

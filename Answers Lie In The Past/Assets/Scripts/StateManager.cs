@@ -33,6 +33,7 @@ public class StateManager : MonoBehaviour
         }
         catch(KeyNotFoundException)
         {
+            Debug.Log("State " + key + " not found! Initilizing to false.");
             return dict[key] = false; // create new false element
         }
         
