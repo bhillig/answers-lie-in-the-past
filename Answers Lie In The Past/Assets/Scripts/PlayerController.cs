@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private bool canMove = true;
     private bool _facingRight = true;
+    private bool _canTimeShift = false;
     public bool FacingRight
     {
         get { return _facingRight; }
@@ -72,9 +73,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
             CheckInteractable();
 
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TimeShiftManager.instance.TimeShift();
+            if(_canTimeShift)
+            {
+                TimeShiftManager.instance.TimeShift();
+            }
         }
     }
 
@@ -119,6 +124,11 @@ public class PlayerController : MonoBehaviour
     public void DisableMovement()
     {
         canMove = false;
+    }
+
+    public void EnableTimeShift()
+    {
+        _canTimeShift = true;
     }
 
     public void CheckInteractable()
