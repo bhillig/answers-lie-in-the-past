@@ -80,6 +80,7 @@ public class HorizontalPlatform : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision)
     {
         collision.gameObject.transform.parent = null;
+        DontDestroyOnLoad(collision.gameObject);
     }
 
 
