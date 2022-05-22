@@ -2,30 +2,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+[RequireComponent(typeof(BoxCollider2D))]
+
+public abstract class Interactable : MonoBehaviour
 {
+    private void Reset()
+    {
+        GetComponent<BoxCollider2D>().isTrigger = true;
+    }
+
     [SerializeField]
     private string _stateKey;
 
-    private GameObject player;
-    // Start is called before the first frame update
-    void Start()
+    private GameObject spriteObj;
+
+    private SpriteRenderer sr;
+
+    private Sprite e;
+
+    protected void Start()
     {
-        player = GameObject.Find("Player");
+        Debug.Log("CALLED");
+
+        spriteObj = new GameObject("IconHolder");
+        spriteObj.AddComponent<SpriteRenderer>();
+
+        sr = spriteObj.GetComponent<SpriteRenderer>();
+        if (sr == null)
+            Debug.Log("Null");
+
+        sr.sprite = Resources.Load<Sprite>("eSprite");
+        sr.size = new Vector2(1,1);
+        sr.sortingOrder = 2;
+        Debug.Log(sr.renderingLayerMask);
+        sr.transform.position = transform.position + new Vector3(0.0f,1.0f,0.0f);
+
+        sr.enabled = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public abstract void Interact();
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Debug.Log("Entering");
+        sr.enabled = true;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        
+        if (Input.GetKey(KeyCode.E))
+            Interact();
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        sr.enabled = false;
     }
 }
