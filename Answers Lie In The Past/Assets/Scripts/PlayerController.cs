@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     // config parameters
     [SerializeField]
     private float _moveSpeed;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     bool _isSprinting;
 
+    private bool canMove = true;
     private bool _facingRight = true;
     public bool FacingRight
     {
@@ -51,7 +53,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         GetInput();
-        Move();
+        if(canMove)
+            Move();
         playerTransform = transform.position;
     }
 
@@ -101,5 +104,15 @@ public class PlayerController : MonoBehaviour
     public void TransferPositionOnTimeShift()
     {
         transform.position = playerTransform;
+    }
+
+    public void EnableMovement()
+    {
+        canMove = true;
+    }
+
+    public void DisableMovement()
+    {
+        canMove = false;
     }
 }

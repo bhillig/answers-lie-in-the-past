@@ -8,6 +8,7 @@ public class Flashlight : MonoBehaviour
     [SerializeField]
     GameObject flashlight;
 
+    private bool carrying = false;
     private bool isOn = false;
 
     private void Awake()
@@ -17,11 +18,14 @@ public class Flashlight : MonoBehaviour
 
     private void Update()
     {
-        if(isOn)
-            HandleAiming();
+        if(carrying)
+        {
+            if (isOn)
+                HandleAiming();
 
-        if (Input.GetMouseButtonDown(0))
-            StartCoroutine(ToggleFlashlight());
+            if (Input.GetMouseButtonDown(0))
+                StartCoroutine(ToggleFlashlight());
+        }
     }
 
     IEnumerator ToggleFlashlight()
@@ -55,6 +59,12 @@ public class Flashlight : MonoBehaviour
         direction = new Vector2(mousePosition.x - Screen.width / 2, mousePosition.y - Screen.height / 2);
         gameObject.transform.right = direction;
         
+    }
+
+    public void EquipFlashlight()
+    {
+        carrying = true;
+        SoundManager.instance.PlaySoundEffect("flashlight_on");
     }
 
 }

@@ -29,7 +29,7 @@ public class OpeningNote : Interactable
             StateManager.instance.setState(_stateKey, true);
         }
         else
-        {
+        { 
             Destroy(this.gameObject);
             PlayerController.instance.EnableMovement();
         }
