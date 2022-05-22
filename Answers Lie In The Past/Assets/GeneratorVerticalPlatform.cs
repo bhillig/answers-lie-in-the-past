@@ -11,7 +11,7 @@ public class GeneratorVerticalPlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!StateManager.instance.getState("generator2"))
+        if (!StateManager.instance.getState("gen2"))
         {
             disabled = true;
             startingPosition = transform.position;

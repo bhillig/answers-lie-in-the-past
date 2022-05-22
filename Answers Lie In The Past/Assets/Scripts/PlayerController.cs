@@ -172,4 +172,9 @@ public class PlayerController : MonoBehaviour
     {
         _rb.gravityScale = newGrav;
     }
+
+    public void Respawn()
+    {
+        transform.position = _spawnPoint;
+    }
 }

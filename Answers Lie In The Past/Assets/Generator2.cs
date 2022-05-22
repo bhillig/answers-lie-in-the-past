@@ -8,7 +8,7 @@ public class Generator2 : Interactable
     void Start()
     {
         base.Start();
-        if (StateManager.instance.getState("generator2"))
+        if (StateManager.instance.getState("gen2"))
         {
             Destroy(this.gameObject);
         }
@@ -16,7 +16,7 @@ public class Generator2 : Interactable
 
     public override void Interact()
     {
-        StateManager.instance.setState("generator2", true);
+        StateManager.instance.setState("gen2", true);
         SoundManager.instance.PlaySoundEffect("flashlight_on");
         Destroy(this.gameObject);
     }

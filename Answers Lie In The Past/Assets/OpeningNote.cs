@@ -35,14 +35,4 @@ public class OpeningNote : Interactable
         }
             
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (collision.CompareTag("Player"))
-                Interact();
-        }
-
-    }
 }
