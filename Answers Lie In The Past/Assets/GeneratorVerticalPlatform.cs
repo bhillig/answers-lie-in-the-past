@@ -13,6 +13,7 @@ public class GeneratorVerticalPlatform : MonoBehaviour
     {
         if (!StateManager.instance.getState("gen2"))
         {
+            Debug.Log("disabled");
             disabled = true;
             startingPosition = transform.position;
         }
