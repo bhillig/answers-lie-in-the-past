@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
 
+    private Vector2 interactableBoxSize = new Vector2(0.1f, 1f);
+
     public static PlayerController instance { get; private set; }
     public static Vector3 playerTransform { get; private set; }
 
@@ -67,7 +69,10 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftShift))
             _isSprinting = true;
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
+            CheckInteractable();
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             TimeShiftManager.instance.TimeShift();
         }
@@ -114,5 +119,18 @@ public class PlayerController : MonoBehaviour
     public void DisableMovement()
     {
         canMove = false;
+    }
+
+    public void CheckInteractable()
+    {
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, interactableBoxSize, 0f, Vector2.zero);
+        foreach(RaycastHit2D hit in hits)
+        {
+            if (hit.transform.GetComponent<Interactable>())
+            {
+                hit.transform.GetComponent<Interactable>().Interact();
+                return;
+            }
+        }
     }
 }

@@ -22,8 +22,6 @@ public abstract class Interactable : MonoBehaviour
 
     protected void Start()
     {
-        Debug.Log("CALLED");
-
         spriteObj = new GameObject("IconHolder");
         spriteObj.AddComponent<SpriteRenderer>();
 
@@ -46,15 +44,16 @@ public abstract class Interactable : MonoBehaviour
         sr.enabled = true;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    /*private void OnTriggerStay2D(Collider2D collision)
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("E trigger");
             if (collision.CompareTag("Player"))
                 Interact();
         }
         
-    }
+    }*/
 
     private void OnTriggerExit2D(Collider2D collision)
     {
