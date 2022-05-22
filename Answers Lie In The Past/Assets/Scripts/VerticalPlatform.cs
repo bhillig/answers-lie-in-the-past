@@ -75,12 +75,16 @@ public class VerticalPlatform : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         collision.gameObject.transform.SetParent(gameObject.transform, true);
+        collision.gameObject.GetComponent<PlayerController>().DisableTimeShift();
+
+        
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         collision.gameObject.transform.parent = null;
         DontDestroyOnLoad(collision.gameObject);
+        collision.gameObject.GetComponent<PlayerController>().EnableTimeShift();
     }
 
 }
