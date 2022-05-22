@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftShift))
             _isSprinting = true;
 
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             TimeShiftManager.instance.TimeShift();
         }

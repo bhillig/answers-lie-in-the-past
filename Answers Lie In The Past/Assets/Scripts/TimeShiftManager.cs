@@ -40,20 +40,28 @@ public class TimeShiftManager : MonoBehaviour
             _inPresent = false;
             _inPast = true;
             sceneToLoad = _pastSceneName;
-            SoundManager.instance.PlayMusicTrack("past");
         }
         else if(_inPast)
         {
             _inPast = false;
             _inPresent = true;
             sceneToLoad = _presentSceneName;
-            SoundManager.instance.PlayMusicTrack("present");
         }
+
+        FindObjectOfType<TimeShiftDissolve>().TurnOnDissolve();
+        StartCoroutine(LoadSceneAfterOneSecond(sceneToLoad));
+    }
+
+    IEnumerator LoadSceneAfterOneSecond(string sceneToLoad)
+    {
+        yield return new WaitForSeconds(1.0f);
+        if (_inPast)
+            SoundManager.instance.PlayMusicTrack("past");
+        else
+            SoundManager.instance.PlayMusicTrack("present");
 
         SceneManager.LoadScene(sceneToLoad);
         PlayerController.instance.TransferPositionOnTimeShift();
     }
-
-
     
 }
