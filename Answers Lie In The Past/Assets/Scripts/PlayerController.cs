@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     // cache references
     private Rigidbody2D _rb;
+    private Animator _animator;
 
     public static PlayerController instance { get; private set; }
     public static Vector3 playerTransform { get; private set; }
@@ -38,9 +39,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             instance = this;
-            _rb = GetComponent<Rigidbody2D>();
             DontDestroyOnLoad(this.gameObject);
             Cursor.visible = false;
+
+            _rb = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
         }
     }
 
@@ -85,6 +88,8 @@ public class PlayerController : MonoBehaviour
         }
            
         transform.position += new Vector3(_horizontalMovement, 0.0f, 0.0f) * moveSpeed * Time.deltaTime;
+
+        _animator.SetFloat("Horizontal", Mathf.Abs(_horizontalMovement));
     }
 
     private void FlipPlayer()

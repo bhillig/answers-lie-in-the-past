@@ -48,13 +48,16 @@ public class TimeShiftManager : MonoBehaviour
             sceneToLoad = _presentSceneName;
         }
 
-        FindObjectOfType<TimeShiftDissolve>().TurnOnDissolve();
+        
         StartCoroutine(LoadSceneAfterOneSecond(sceneToLoad));
     }
 
     IEnumerator LoadSceneAfterOneSecond(string sceneToLoad)
     {
+        FindObjectOfType<TimeShiftDissolve>().TurnOnDissolve();
+
         yield return new WaitForSeconds(1.0f);
+
         if (_inPast)
             SoundManager.instance.PlayMusicTrack("past");
         else
@@ -62,6 +65,8 @@ public class TimeShiftManager : MonoBehaviour
 
         SceneManager.LoadScene(sceneToLoad);
         PlayerController.instance.TransferPositionOnTimeShift();
+
+        FindObjectOfType<TimeShiftDissolve>().TurnOnCondense();
     }
     
 }

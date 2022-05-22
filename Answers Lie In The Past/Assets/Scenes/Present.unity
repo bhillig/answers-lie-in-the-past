@@ -2304,7 +2304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1004132149}
-  _offset: {x: 0, y: 8, z: -10}
+  _offset: {x: 0, y: 3, z: -10}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2332,7 +2332,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10.1
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2356,7 +2356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -5.96, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39277,7 +39277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
       propertyPath: sfxClips.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
       propertyPath: musicTracks.Array.size
@@ -39291,6 +39291,14 @@ PrefabInstance:
       propertyPath: sfxClips.Array.data[1].clip
       value: 
       objectReference: {fileID: 8300000, guid: 7f564461a1754aa46acf4fd94e41c5a7, type: 3}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ba82515c949bb4448bcc20f299debee, type: 3}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 869c521de54c9db4191255e2c18cf432, type: 3}
     - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
       propertyPath: sfxClips.Array.data[0].pitch
       value: 1
@@ -39308,11 +39316,35 @@ PrefabInstance:
       value: flashlight_off
       objectReference: {fileID: 0}
     - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[2].title
+      value: dissolve
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[3].title
+      value: condense
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
       propertyPath: sfxClips.Array.data[0].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
       propertyPath: sfxClips.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
+      propertyPath: sfxClips.Array.data[3].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8052912802482142812, guid: 30dfcb6fbe308aa4ba75b40d140d23a8, type: 3}
