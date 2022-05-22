@@ -28,6 +28,7 @@ public class WateringCanInteract : Interactable
         
         if (!watering)
         {
+            SoundManager.instance.PlaySoundEffect("water");
             watering = true;
             srr.enabled = true;
             yield return new WaitForSeconds(1.0f);

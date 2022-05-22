@@ -19,6 +19,7 @@ public class Vines : MonoBehaviour
         growth = StateManager.instance.getState("PlantedSeed") && StateManager.instance.getState("Watered");
 
         GetComponent<TilemapRenderer>().enabled = growth;
+        enabled = growth;
     }
 
 
