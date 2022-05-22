@@ -72,4 +72,15 @@ public class VerticalPlatform : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.gameObject.transform.SetParent(gameObject.transform, true);
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.gameObject.transform.parent = null;
+        DontDestroyOnLoad(collision.gameObject);
+    }
+
 }
