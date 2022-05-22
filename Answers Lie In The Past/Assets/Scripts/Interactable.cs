@@ -18,8 +18,6 @@ public abstract class Interactable : MonoBehaviour
 
     private SpriteRenderer sr;
 
-    private Sprite e;
-
     protected void Start()
     {
         spriteObj = new GameObject("IconHolder");
