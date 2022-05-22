@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     // state variables
     float _horizontalMovement;
 
+    float _verticalMovement;
+
     [SerializeField]
     bool _isSprinting;
 
@@ -70,6 +72,8 @@ public class PlayerController : MonoBehaviour
 
         _horizontalMovement = Input.GetAxis("Horizontal");
 
+        _verticalMovement = Input.GetAxis("Vertical");
+
         if(Input.GetKey(KeyCode.LeftShift))
             _isSprinting = true;
 
@@ -106,6 +110,13 @@ public class PlayerController : MonoBehaviour
         transform.position += new Vector3(_horizontalMovement, 0.0f, 0.0f) * moveSpeed * Time.deltaTime;
 
         _animator.SetFloat("Horizontal", Mathf.Abs(_horizontalMovement));
+
+        if(_rb.gravityScale == 0) 
+        {
+            transform.position += new Vector3(0.0f, _verticalMovement, 0.0f) * moveSpeed * Time.deltaTime;
+
+            _animator.SetFloat("Vertical", Mathf.Abs(_verticalMovement));
+        }
     }
 
     private void FlipPlayer()
@@ -150,5 +161,10 @@ public class PlayerController : MonoBehaviour
     public void SetSpawnPoint(Vector3 point)
     {
         _spawnPoint = point;
+    }
+
+    public void SetGravity(int newGrav) 
+    {
+        _rb.gravityScale = newGrav;
     }
 }
