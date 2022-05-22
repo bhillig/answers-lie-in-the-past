@@ -12,7 +12,7 @@ public abstract class Interactable : MonoBehaviour
     }
 
     [SerializeField]
-    private string _stateKey;
+    protected string _stateKey;
 
     private GameObject spriteObj;
 
@@ -34,7 +34,6 @@ public abstract class Interactable : MonoBehaviour
         sr.sprite = Resources.Load<Sprite>("eSprite");
         sr.size = new Vector2(1,1);
         sr.sortingOrder = 2;
-        Debug.Log(sr.renderingLayerMask);
         sr.transform.position = transform.position + new Vector3(0.0f,1.0f,0.0f);
 
         sr.enabled = false;
@@ -44,14 +43,17 @@ public abstract class Interactable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Entering");
         sr.enabled = true;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKey(KeyCode.E))
-            Interact();
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            if (collision.CompareTag("Player"))
+                Interact();
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
