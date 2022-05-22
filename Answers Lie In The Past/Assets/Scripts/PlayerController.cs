@@ -145,6 +145,11 @@ public class PlayerController : MonoBehaviour
         _canTimeShift = true;
     }
 
+    public void DisableTimeShift() 
+    {
+        _canTimeShift = false;
+    }
+
     public void CheckInteractable()
     {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, interactableBoxSize, 0f, Vector2.zero);
