@@ -5,10 +5,12 @@ using UnityEngine;
 public class TimeShiftDissolve : MonoBehaviour
 {
     private float dissolveDuration = 1.0f;
+    private float condenseDuration = 0.0f;
 
     private Material material;
 
     public static bool isDissolving = false;
+    public static bool isCondensing = false;
 
     private void Awake()
     {
@@ -27,26 +29,60 @@ public class TimeShiftDissolve : MonoBehaviour
             Dissolve();
         }
 
-        material.SetFloat("_Fade", dissolveDuration);
+        if(isCondensing)
+        {
+            Condense();
+        }
+
     }
 
     void Dissolve()
     {
         dissolveDuration -= Time.deltaTime;
+
         if(dissolveDuration <= 0.0f)
         {
             dissolveDuration = 0.0f;
             isDissolving = false;
+            TurnOnCondense();
         }
 
-        if(dissolveDuration <= 0.0f)
+        material.SetFloat("_Fade", dissolveDuration);
+
+        if (dissolveDuration <= 0.0f)
         {
             dissolveDuration = 1.0f;
         }
     }
 
+    void Condense()
+    {
+
+        condenseDuration += Time.deltaTime;
+
+        if (condenseDuration >= 1.0f)
+        {
+            condenseDuration = 1.0f;
+            isCondensing = false;
+        }
+
+        material.SetFloat("_Fade", condenseDuration);
+
+        if(condenseDuration >= 1.0f)
+        {
+            condenseDuration = 0.0f;
+        }
+    }
+
     public void TurnOnDissolve()
     {
+        SoundManager.instance.PlaySoundEffect("dissolve");
         isDissolving = true;
+    }
+
+    public void TurnOnCondense()
+    {
+        SoundManager.instance.PlaySoundEffect("condense");
+        isCondensing = true;
     }
 }
