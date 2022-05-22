@@ -7,7 +7,7 @@ public class VerticalPlatform : MonoBehaviour
     [SerializeField]
     private float _moveRange;
     [SerializeField]
-    private float _speed; //less than absolute value of 1 slow, greater than fast.
+    private float _duration; //How long do you want the Lerp to last?
 
     [SerializeField]
 
@@ -19,6 +19,8 @@ public class VerticalPlatform : MonoBehaviour
     private Vector2 currentPos;
 
     private bool movingUp;
+
+    private float time = 0;
 
     void Awake()
     {
@@ -54,19 +56,22 @@ public class VerticalPlatform : MonoBehaviour
 
     void MoveUp()
     {
-        currentPos = Vector2.Lerp(currentPos, endPoint, _speed*Time.smoothDeltaTime);
+        time += Time.smoothDeltaTime;
+        currentPos = Vector2.Lerp(currentPos, endPoint, time/ _duration);
         this.gameObject.transform.position = currentPos;
-        if (Vector2.Distance(currentPos, endPoint) < 1f) 
+        if (Vector2.Distance(currentPos, endPoint) < 0.1f) 
         {
             movingUp = false;
+            time = 0;
         }
     }
 
     void MoveDown()
     {
-        currentPos = Vector2.Lerp(currentPos, startPoint, _speed*Time.smoothDeltaTime);
+        time += Time.smoothDeltaTime;
+        currentPos = Vector2.Lerp(currentPos, startPoint, time/_duration);
         this.gameObject.transform.position = currentPos;
-        if (Vector2.Distance(currentPos, startPoint) < 1f) 
+        if (Vector2.Distance(currentPos, startPoint) < 0.1f) 
         {
             movingUp = true;
         }
